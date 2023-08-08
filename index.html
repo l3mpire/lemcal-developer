@@ -1,0 +1,708 @@
+
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        <meta
+            name="description"
+            content="Documentation for the Kittn API"
+        >
+    <title>lemcal - Developer Documentation</title>
+
+    <style media="screen">
+      .highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight .gh {
+  color: #999999;
+}
+.highlight .sr {
+  color: #f6aa11;
+}
+.highlight .go {
+  color: #888888;
+}
+.highlight .gp {
+  color: #555555;
+}
+.highlight .gs {
+}
+.highlight .gu {
+  color: #aaaaaa;
+}
+.highlight .nb {
+  color: #f6aa11;
+}
+.highlight .cm {
+  color: #75715e;
+}
+.highlight .cp {
+  color: #75715e;
+}
+.highlight .c1 {
+  color: #75715e;
+}
+.highlight .cs {
+  color: #75715e;
+}
+.highlight .c, .highlight .ch, .highlight .cd, .highlight .cpf {
+  color: #75715e;
+}
+.highlight .err {
+  color: #960050;
+}
+.highlight .gr {
+  color: #960050;
+}
+.highlight .gt {
+  color: #960050;
+}
+.highlight .gd {
+  color: #49483e;
+}
+.highlight .gi {
+  color: #49483e;
+}
+.highlight .ge {
+  color: #49483e;
+}
+.highlight .kc {
+  color: #66d9ef;
+}
+.highlight .kd {
+  color: #66d9ef;
+}
+.highlight .kr {
+  color: #66d9ef;
+}
+.highlight .no {
+  color: #66d9ef;
+}
+.highlight .kt {
+  color: #66d9ef;
+}
+.highlight .mf {
+  color: #ae81ff;
+}
+.highlight .mh {
+  color: #ae81ff;
+}
+.highlight .il {
+  color: #ae81ff;
+}
+.highlight .mi {
+  color: #ae81ff;
+}
+.highlight .mo {
+  color: #ae81ff;
+}
+.highlight .m, .highlight .mb, .highlight .mx {
+  color: #ae81ff;
+}
+.highlight .sc {
+  color: #ae81ff;
+}
+.highlight .se {
+  color: #ae81ff;
+}
+.highlight .ss {
+  color: #ae81ff;
+}
+.highlight .sd {
+  color: #e6db74;
+}
+.highlight .s2 {
+  color: #e6db74;
+}
+.highlight .sb {
+  color: #e6db74;
+}
+.highlight .sh {
+  color: #e6db74;
+}
+.highlight .si {
+  color: #e6db74;
+}
+.highlight .sx {
+  color: #e6db74;
+}
+.highlight .s1 {
+  color: #e6db74;
+}
+.highlight .s, .highlight .sa, .highlight .dl {
+  color: #e6db74;
+}
+.highlight .na {
+  color: #a6e22e;
+}
+.highlight .nc {
+  color: #a6e22e;
+}
+.highlight .nd {
+  color: #a6e22e;
+}
+.highlight .ne {
+  color: #a6e22e;
+}
+.highlight .nf, .highlight .fm {
+  color: #a6e22e;
+}
+.highlight .vc {
+  color: #ffffff;
+}
+.highlight .nn {
+  color: #ffffff;
+}
+.highlight .ni {
+  color: #ffffff;
+}
+.highlight .bp {
+  color: #ffffff;
+}
+.highlight .vg {
+  color: #ffffff;
+}
+.highlight .vi {
+  color: #ffffff;
+}
+.highlight .nv, .highlight .vm {
+  color: #ffffff;
+}
+.highlight .w {
+  color: #ffffff;
+}
+.highlight {
+  color: #ffffff;
+}
+.highlight .n, .highlight .py, .highlight .nx {
+  color: #ffffff;
+}
+.highlight .nl {
+  color: #f92672;
+}
+.highlight .ow {
+  color: #f92672;
+}
+.highlight .nt {
+  color: #f92672;
+}
+.highlight .k, .highlight .kv {
+  color: #f92672;
+}
+.highlight .kn {
+  color: #f92672;
+}
+.highlight .kp {
+  color: #f92672;
+}
+.highlight .o {
+  color: #f92672;
+}
+    </style>
+    <style media="print">
+      * {
+        -webkit-transition:none!important;
+        transition:none!important;
+      }
+      .highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight, .highlight .w {
+  color: #586e75;
+}
+.highlight .err {
+  color: #002b36;
+  background-color: #dc322f;
+}
+.highlight .c, .highlight .ch, .highlight .cd, .highlight .cm, .highlight .cpf, .highlight .c1, .highlight .cs {
+  color: #657b83;
+}
+.highlight .cp {
+  color: #b58900;
+}
+.highlight .nt {
+  color: #b58900;
+}
+.highlight .o, .highlight .ow {
+  color: #93a1a1;
+}
+.highlight .p, .highlight .pi {
+  color: #93a1a1;
+}
+.highlight .gi {
+  color: #859900;
+}
+.highlight .gd {
+  color: #dc322f;
+}
+.highlight .gh {
+  color: #268bd2;
+  background-color: #002b36;
+  font-weight: bold;
+}
+.highlight .k, .highlight .kn, .highlight .kp, .highlight .kr, .highlight .kv {
+  color: #6c71c4;
+}
+.highlight .kc {
+  color: #cb4b16;
+}
+.highlight .kt {
+  color: #cb4b16;
+}
+.highlight .kd {
+  color: #cb4b16;
+}
+.highlight .s, .highlight .sb, .highlight .sc, .highlight .dl, .highlight .sd, .highlight .s2, .highlight .sh, .highlight .sx, .highlight .s1 {
+  color: #859900;
+}
+.highlight .sa {
+  color: #6c71c4;
+}
+.highlight .sr {
+  color: #2aa198;
+}
+.highlight .si {
+  color: #d33682;
+}
+.highlight .se {
+  color: #d33682;
+}
+.highlight .nn {
+  color: #b58900;
+}
+.highlight .nc {
+  color: #b58900;
+}
+.highlight .no {
+  color: #b58900;
+}
+.highlight .na {
+  color: #268bd2;
+}
+.highlight .m, .highlight .mb, .highlight .mf, .highlight .mh, .highlight .mi, .highlight .il, .highlight .mo, .highlight .mx {
+  color: #859900;
+}
+.highlight .ss {
+  color: #859900;
+}
+    </style>
+    <link href="stylesheets/screen-9c19b03a.css" rel="stylesheet" media="screen" />
+    <link href="stylesheets/print-966d6edc.css" rel="stylesheet" media="print" />
+      <script src="javascripts/all-b12a2749.js"></script>
+
+    <script>
+      $(function() { setupCodeCopy(); });
+    </script>
+  </head>
+
+  <body class="index" data-languages="[]">
+    <a href="#" id="nav-button">
+      <span>
+        NAV
+        <img src="images/navbar-cad8cdcb.png" alt="" />
+      </span>
+    </a>
+    <div class="toc-wrapper">
+      <img src="images/logo-efc929dd.png" class="logo" alt="" />
+        <div class="search">
+          <input type="text" class="search" id="input-search" placeholder="Search">
+        </div>
+        <ul class="search-results"></ul>
+      <ul id="toc" class="toc-list-h1">
+          <li>
+            <a href="#introduction" class="toc-h1 toc-link" data-title="Introduction">Introduction</a>
+          </li>
+          <li>
+            <a href="#rate-limit" class="toc-h1 toc-link" data-title="Rate Limit">Rate Limit</a>
+          </li>
+          <li>
+            <a href="#definitions" class="toc-h1 toc-link" data-title="Definitions">Definitions</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#meeting" class="toc-h2 toc-link" data-title="Meeting">Meeting</a>
+                  </li>
+                  <li>
+                    <a href="#meeting-type" class="toc-h2 toc-link" data-title="Meeting Type">Meeting Type</a>
+                  </li>
+                  <li>
+                    <a href="#lead" class="toc-h2 toc-link" data-title="Lead">Lead</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#authentication" class="toc-h1 toc-link" data-title="Authentication">Authentication</a>
+          </li>
+          <li>
+            <a href="#meetings" class="toc-h1 toc-link" data-title="Meetings">Meetings</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#list-booked-meetings" class="toc-h2 toc-link" data-title="List booked meetings">List booked meetings</a>
+                  </li>
+                  <li>
+                    <a href="#create-a-hook" class="toc-h2 toc-link" data-title="Create a Hook">Create a Hook</a>
+                  </li>
+                  <li>
+                    <a href="#delete-a-hook" class="toc-h2 toc-link" data-title="Delete a Hook">Delete a Hook</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#errors" class="toc-h1 toc-link" data-title="Errors">Errors</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#general-errors" class="toc-h2 toc-link" data-title="General Errors">General Errors</a>
+                  </li>
+                  <li>
+                    <a href="#specific-errors" class="toc-h2 toc-link" data-title="Specific Errors">Specific Errors</a>
+                  </li>
+              </ul>
+          </li>
+      </ul>
+        <ul class="toc-footer">
+            <li><a href='https://lemcal.com'>lemcal homepage</a></li>
+            <li><a href='https://help.lemcal.com'>lemcal FAQ</a></li>
+        </ul>
+    </div>
+    <div class="page-wrapper">
+      <div class="dark-box"></div>
+      <div class="content">
+        <h1 id='introduction'>Introduction</h1>
+<p>Welcome to the lemcal Developer Documentation.</p>
+<h1 id='rate-limit'>Rate Limit</h1>
+<p>lemcal&#39;s API rate limits requests in order to prevent abuse and overload of our services.<br>
+Rate limits are applied on all routes and per api key performing the request.<br>
+The rate limits are <strong>20</strong> requests per <strong>2</strong> seconds.</p>
+
+<p>The response provide any information you may need about it:</p>
+
+<blockquote>
+<p>Example of values for the rate limit headers</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"Retry-After"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"X-RateLimit-Limit"</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"X-RateLimit-Remaining"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"Retry-After"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"Tue Feb 16 2021 09:02:42 GMT+0100 (Central European Standard Time)"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<table><thead>
+<tr>
+<th>Header</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Retry-After</td>
+<td>The number of second in which you can retry</td>
+</tr>
+<tr>
+<td>X-RateLimit-Limit</td>
+<td>The maximum requests in that time</td>
+</tr>
+<tr>
+<td>X-RateLimit-Remaining</td>
+<td>The number of remaining requests you can make</td>
+</tr>
+<tr>
+<td>X-RateLimit-Reset</td>
+<td>The date when the rate limit will reset</td>
+</tr>
+</tbody></table>
+<h1 id='definitions'>Definitions</h1><h2 id='meeting'>Meeting</h2>
+<p>A meeting is a scheduled engagement defined by a specific type, including details such as name, duration, and location, facilitating streamlined booking and organization between users.</p>
+<h2 id='meeting-type'>Meeting Type</h2>
+<p>A meeting type is a customizable template that defines the specific details of a potential meeting. Users can create various meeting types to offer different options to those who want to book a meeting with them.</p>
+<h2 id='lead'>Lead</h2>
+<p>A lead is a person that you try to contact using <a href="https://lemlist.com">lemlist</a>.</p>
+<h1 id='authentication'>Authentication</h1>
+<blockquote>
+<p>To authorize, use this code:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> GET <span class="s2">"http://api.lemcal.com/api/lemcal/me"</span> <span class="se">\</span>
+     <span class="nt">-H</span> <span class="s2">"Authorization: Basic </span><span class="si">$(</span><span class="nb">echo</span> <span class="nt">-n</span> <span class="s1">'username:password'</span> | <span class="nb">base64</span><span class="si">)</span><span class="s2">"</span>
+</code></pre></div>
+<p>All lemcal API routes are accessed via the dedicated subdomain api.lemcal.com.</p>
+
+<p>Authentication is performed using the Basic authentication type in the Authorization header. The format for this header is username:password that can be obtained <a href="https://app.lemcal.com/integrations">here</a>.</p>
+<h1 id='meetings'>Meetings</h1><h2 id='list-booked-meetings'>List booked meetings</h2>
+<p>This endpoint retrieves your booked meetings.</p>
+<h3 id='http-request'>HTTP Request</h3><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> GET <span class="s2">"http://api.lemcal.com/api/lemcal/meetings"</span> <span class="se">\</span>
+     <span class="nt">-H</span> <span class="s2">"Authorization: Basic </span><span class="si">$(</span><span class="nb">echo</span> <span class="nt">-n</span> <span class="s1">'username:password'</span> | <span class="nb">base64</span><span class="si">)</span><span class="s2">"</span>
+</code></pre></div>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="w">
+</span><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"mee_NSXBft76yJoMh5Bik"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"userId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"usr_BuDuyx4chjoNfcmzM"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"meetingTypeId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"met_4HdebtnSiwFpFb6BF"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"providedInfos"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Lorem ipsum dolor sit amet, consectetur adipiscing elit."</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"eventId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fkne3iuvmjsvi9cf746s39obfc"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"start"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2023-03-24T15:30:00.000Z"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"end"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2023-03-24T16:00:00.000Z"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"lead"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"alice@example.com"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"firstName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"alice"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"lastName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"smith"</span><span class="p">,</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nl">"attendees"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+          </span><span class="p">{</span><span class="w">
+              </span><span class="nl">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"alice@example.com"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"alice"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"required"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"response"</span><span class="p">:</span><span class="w"> </span><span class="s2">"accepted"</span><span class="w">
+          </span><span class="p">},</span><span class="w">
+          </span><span class="p">{</span><span class="w">
+              </span><span class="nl">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bob@example.com"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"required"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"response"</span><span class="p">:</span><span class="w"> </span><span class="s2">"accepted"</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+      </span><span class="p">],</span><span class="w">
+      </span><span class="nl">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2023-07-19T13:23:39.910Z"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+</span><span class="p">]</span><span class="w">
+
+</span></code></pre></div>
+<p><code>GET http://api.lemcal.com/api/lemcal/meetings</code></p>
+<h3 id='query-parameters'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>meetingTypeId</code></td>
+<td>string</td>
+<td>No</td>
+<td>Filter meetings by a specific meeting type.</td>
+</tr>
+</tbody></table>
+<h3 id='response'>Response</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>_id</td>
+<td>Unique identifier for the meeting.</td>
+</tr>
+<tr>
+<td>userId</td>
+<td>Identifier for the user associated with the meeting.</td>
+</tr>
+<tr>
+<td>meetingTypeId</td>
+<td>Identifier for the type of meeting.</td>
+</tr>
+<tr>
+<td>providedInfos</td>
+<td>Additional text information about the meeting.</td>
+</tr>
+<tr>
+<td>eventId</td>
+<td>Unique identifier for the related event.</td>
+</tr>
+<tr>
+<td>start</td>
+<td>Start time of the meeting in ISO 8601 format.</td>
+</tr>
+<tr>
+<td>end</td>
+<td>End time of the meeting in ISO 8601 format.</td>
+</tr>
+<tr>
+<td>lead.email</td>
+<td>Lead&#39;s email address.</td>
+</tr>
+<tr>
+<td>lead.firstName</td>
+<td>Lead&#39;s first name.</td>
+</tr>
+<tr>
+<td>lead.lastName</td>
+<td>Lead&#39;s last name.</td>
+</tr>
+<tr>
+<td>attendees</td>
+<td>List of attendees for the meeting (includes email, name, type, response).</td>
+</tr>
+<tr>
+<td>createdAt</td>
+<td>Creation date and time of the meeting in ISO 8601 format.</td>
+</tr>
+</tbody></table>
+<h2 id='create-a-hook'>Create a Hook</h2>
+<p>This endpoint allows you to create a hook to a specified target URL. Hooks can be associated with a specific meeting type or applied to any meeting type.</p>
+<h3 id='http-request-2'>HTTP Request</h3>
+<p><code>POST http://api.lemcal.com/api/lemcal/hooks/</code></p>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> POST <span class="s2">"http://api.lemcal.com/api/lemcal/hooks"</span> <span class="se">\</span>
+     <span class="nt">-H</span> <span class="s2">"Authorization: Basic </span><span class="si">$(</span><span class="nb">echo</span> <span class="nt">-n</span> <span class="s1">'username:password'</span> | <span class="nb">base64</span><span class="si">)</span><span class="s2">"</span> <span class="se">\</span>
+     <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+     <span class="nt">-d</span> <span class="s1">'{
+         "targetUrl": "http://example.com/callback",
+         "meetingTypeId": "met_4HdebtnSiwFpFb6BF",
+         "anyMeetingType": true
+     }'</span>
+</code></pre></div>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="w">
+</span><span class="p">{</span><span class="w">
+    </span><span class="nl">"_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"hoo_NSXBft76yJoMh5Bik"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"targetUrl"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://example.com/callback"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"meetingTypeId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"met_4HdebtnSiwFpFb6BF"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"anyMeetingType"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-10-17T07:43:50.740Z"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span></code></pre></div><h3 id='request-body'>Request Body</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>targetUrl</code></td>
+<td>string</td>
+<td>Yes</td>
+<td>The target URL for the hook. Must be a valid URL starting with <code>http://</code> or <code>https://</code>.</td>
+</tr>
+<tr>
+<td><code>meetingTypeId</code></td>
+<td>string</td>
+<td>No</td>
+<td>The ID of a specific meeting type to associate with the hook. Cannot be used with <code>anyMeetingType</code>.</td>
+</tr>
+<tr>
+<td><code>anyMeetingType</code></td>
+<td>boolean</td>
+<td>No</td>
+<td>If set to <code>true</code>, the hook applies to any meeting type. Is prior to <code>meetingTypeId</code>.</td>
+</tr>
+</tbody></table>
+
+<p><em>Note</em>: You must provide either <code>meetingTypeId</code> or <code>anyMeetingType</code>.</p>
+<h2 id='delete-a-hook'>Delete a Hook</h2>
+<p>This endpoint allows you to delete an existing hook by its <code>id</code>.</p>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> DELETE <span class="s2">"http://api.lemcal.com/api/lemcal/hooks/:id"</span> <span class="se">\</span>
+     <span class="nt">-H</span> <span class="s2">"Authorization: Basic </span><span class="si">$(</span><span class="nb">echo</span> <span class="nt">-n</span> <span class="s1">'username:password'</span> | <span class="nb">base64</span><span class="si">)</span><span class="s2">"</span> <span class="se">\</span>
+
+</code></pre></div>
+<blockquote>
+<p>The above command deletes the specified hook and returns a <code>204 No Content</code> status code.</p>
+</blockquote>
+<h3 id='http-request-3'>HTTP Request</h3>
+<p><code>DELETE http://api.lemcal.com/api/lemcal/hooks/:id</code></p>
+
+<p>Replace <code>:id</code> with the actual ID of the hook you want to delete.</p>
+<h3 id='url-parameters'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>id</code></td>
+<td>string</td>
+<td>true</td>
+<td>The ID of the hook to delete.</td>
+</tr>
+</tbody></table>
+<h1 id='errors'>Errors</h1><h2 id='general-errors'>General Errors</h2>
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Message</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>400</td>
+<td>Bad Request</td>
+<td>The request was invalid or cannot be served.</td>
+</tr>
+<tr>
+<td>401</td>
+<td>Unauthorized</td>
+<td>The request requires user authentication.</td>
+</tr>
+<tr>
+<td>404</td>
+<td>Not Found</td>
+<td>The requested resource could not be found.</td>
+</tr>
+<tr>
+<td>405</td>
+<td>Method Not Allowed</td>
+<td>The request method is known by the server but is not supported by the target resource.</td>
+</tr>
+</tbody></table>
+<h2 id='specific-errors'>Specific Errors</h2><h3 id='api-lemcal-hooks'><code>/api/lemcal/hooks</code></h3>
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Message</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>400</td>
+<td>You must provide a targetUrl</td>
+<td>The <code>targetUrl</code> parameter is missing in the request body.</td>
+</tr>
+<tr>
+<td>400</td>
+<td>Invalid targetUrl</td>
+<td>The <code>targetUrl</code> provided is not a valid URL.</td>
+</tr>
+<tr>
+<td>400</td>
+<td>You must provide either a meetingTypeId or anyMeetingType</td>
+<td>The request must include either a <code>meetingTypeId</code> or <code>anyMeetingType</code>.</td>
+</tr>
+<tr>
+<td>404</td>
+<td>meeting type not found</td>
+<td>The provided <code>meetingTypeId</code> was not found in the system.</td>
+</tr>
+<tr>
+<td>409</td>
+<td>Duplicate hook</td>
+<td>A hook with the same details already exists.</td>
+</tr>
+</tbody></table>
+<h3 id='api-lemcal-hooks-id'><code>/api/lemcal/hooks/:id</code></h3>
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Message</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>404</td>
+<td>hook not found</td>
+<td>The specified hook could not be found in the system.</td>
+</tr>
+</tbody></table>
+
+      </div>
+      <div class="dark-box">
+      </div>
+    </div>
+  </body>
+</html>
