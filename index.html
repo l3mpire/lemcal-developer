@@ -427,7 +427,7 @@ The rate limits are <strong>20</strong> requests per <strong>2</strong> seconds.
 <h1 id='meetings'>Meetings</h1><h2 id='list-booked-meetings'>List booked meetings</h2>
 <p>This endpoint retrieves your booked meetings.</p>
 <h3 id='http-request'>HTTP Request</h3><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> GET <span class="s2">"http://api.lemcal.com/api/lemcal/meetings"</span> <span class="se">\</span>
-     <span class="nt">-H</span> <span class="s2">"Authorization: Basic </span><span class="si">$(</span><span class="nb">echo</span> <span class="nt">-n</span> <span class="s1">'username:password'</span> | <span class="nb">base64</span><span class="si">)</span><span class="s2">"</span>
+     <span class="nt">-H</span> <span class="s2">"Authorization: Basic </span><span class="si">$(</span><span class="nb">echo</span> <span class="nt">-n</span> <span class="s1">'userId:apiKey'</span> | <span class="nb">base64</span><span class="si">)</span><span class="s2">"</span>
 </code></pre></div>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
@@ -543,7 +543,7 @@ The rate limits are <strong>20</strong> requests per <strong>2</strong> seconds.
 <h3 id='http-request-2'>HTTP Request</h3>
 <p><code>POST http://api.lemcal.com/api/lemcal/hooks/</code></p>
 <div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> POST <span class="s2">"http://api.lemcal.com/api/lemcal/hooks"</span> <span class="se">\</span>
-     <span class="nt">-H</span> <span class="s2">"Authorization: Basic </span><span class="si">$(</span><span class="nb">echo</span> <span class="nt">-n</span> <span class="s1">'username:password'</span> | <span class="nb">base64</span><span class="si">)</span><span class="s2">"</span> <span class="se">\</span>
+     <span class="nt">-H</span> <span class="s2">"Authorization: Basic </span><span class="si">$(</span><span class="nb">echo</span> <span class="nt">-n</span> <span class="s1">'userId:apiKey'</span> | <span class="nb">base64</span><span class="si">)</span><span class="s2">"</span> <span class="se">\</span>
      <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
      <span class="nt">-d</span> <span class="s1">'{
          "targetUrl": "http://example.com/callback",
@@ -596,7 +596,7 @@ The rate limits are <strong>20</strong> requests per <strong>2</strong> seconds.
 <h2 id='delete-a-hook'>Delete a Hook</h2>
 <p>This endpoint allows you to delete an existing hook by its <code>id</code>.</p>
 <div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> DELETE <span class="s2">"http://api.lemcal.com/api/lemcal/hooks/:id"</span> <span class="se">\</span>
-     <span class="nt">-H</span> <span class="s2">"Authorization: Basic </span><span class="si">$(</span><span class="nb">echo</span> <span class="nt">-n</span> <span class="s1">'username:password'</span> | <span class="nb">base64</span><span class="si">)</span><span class="s2">"</span> <span class="se">\</span>
+     <span class="nt">-H</span> <span class="s2">"Authorization: Basic </span><span class="si">$(</span><span class="nb">echo</span> <span class="nt">-n</span> <span class="s1">'userId:apiKey'</span> | <span class="nb">base64</span><span class="si">)</span><span class="s2">"</span> <span class="se">\</span>
 
 </code></pre></div>
 <blockquote>
