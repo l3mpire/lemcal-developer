@@ -9,7 +9,7 @@ includes:
   - definitions
   - authentication
   - meetings
-  - meeting-type
+  - meeting-types
   - errors
 
 search: true
