@@ -8,7 +8,7 @@
 
 ```shell
 curl -X GET "http://api.lemcal.com/api/lemcal/meetings" \
-     -H "Authorization: Basic $(echo -n 'username:password' | base64)"
+     -H "Authorization: Basic $(echo -n 'userId:apiKey' | base64)"
 ```
 
 > The above command returns JSON structured like this:
@@ -84,7 +84,7 @@ This endpoint allows you to create a hook to a specified target URL. Hooks can b
 
 ```shell
 curl -X POST "http://api.lemcal.com/api/lemcal/hooks" \
-     -H "Authorization: Basic $(echo -n 'username:password' | base64)" \
+     -H "Authorization: Basic $(echo -n 'userId:apiKey' | base64)" \
      -H "Content-Type: application/json" \
      -d '{
          "targetUrl": "http://example.com/callback",
@@ -123,7 +123,7 @@ This endpoint allows you to delete an existing hook by its `id`.
 
 ```shell
 curl -X DELETE "http://api.lemcal.com/api/lemcal/hooks/:id" \
-     -H "Authorization: Basic $(echo -n 'username:password' | base64)" \
+     -H "Authorization: Basic $(echo -n 'userId:apiKey' | base64)" \
      
 ```
 

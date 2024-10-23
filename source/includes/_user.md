@@ -6,7 +6,7 @@ This endpoint retrieves your information.
 
   ```shell
 curl -X GET "http://api.lemcal.com/api/lemcal/me" \
-     -H "Authorization: Basic $(echo -n 'username:password' | base64)"
+     -H "Authorization: Basic $(echo -n 'userId:apiKey' | base64)"
 ```
 
 > The above command returns JSON structured like this:
