@@ -4,7 +4,7 @@
 
 ```shell
 curl -X GET "http://api.lemcal.com/api/lemcal/me" \
-     -H "Authorization: Basic $(echo -n 'username:password' | base64)"
+     -H "Authorization: Basic $(echo -n 'userId:apiKey' | base64)"
 ```
 
 All lemcal API routes are accessed via the dedicated subdomain api.lemcal.com.
