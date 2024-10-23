@@ -347,6 +347,20 @@
               </ul>
           </li>
           <li>
+            <a href="#meeting-types" class="toc-h1 toc-link" data-title="Meeting Types">Meeting Types</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#list-meeting-types" class="toc-h2 toc-link" data-title="List meeting types">List meeting types</a>
+                  </li>
+                  <li>
+                    <a href="#get-a-meeting-type" class="toc-h2 toc-link" data-title="Get a meeting type">Get a meeting type</a>
+                  </li>
+                  <li>
+                    <a href="#structure-of-a-meeting-type" class="toc-h2 toc-link" data-title="Structure of a meeting type">Structure of a meeting type</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
             <a href="#errors" class="toc-h1 toc-link" data-title="Errors">Errors</a>
               <ul class="toc-list-h2">
                   <li>
@@ -419,7 +433,7 @@ The rate limits are <strong>20</strong> requests per <strong>2</strong> seconds.
 <p>To authorize, use this code:</p>
 </blockquote>
 <div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> GET <span class="s2">"http://api.lemcal.com/api/lemcal/me"</span> <span class="se">\</span>
-     <span class="nt">-H</span> <span class="s2">"Authorization: Basic </span><span class="si">$(</span><span class="nb">echo</span> <span class="nt">-n</span> <span class="s1">'username:password'</span> | <span class="nb">base64</span><span class="si">)</span><span class="s2">"</span>
+     <span class="nt">-H</span> <span class="s2">"Authorization: Basic </span><span class="si">$(</span><span class="nb">echo</span> <span class="nt">-n</span> <span class="s1">'userId:apiKey'</span> | <span class="nb">base64</span><span class="si">)</span><span class="s2">"</span>
 </code></pre></div>
 <p>All lemcal API routes are accessed via the dedicated subdomain api.lemcal.com.</p>
 
@@ -620,6 +634,245 @@ The rate limits are <strong>20</strong> requests per <strong>2</strong> seconds.
 <td>string</td>
 <td>true</td>
 <td>The ID of the hook to delete.</td>
+</tr>
+</tbody></table>
+<h1 id='meeting-types'>Meeting Types</h1><h2 id='list-meeting-types'>List meeting types</h2>
+<p>This endpoint retrieves your meeting types.</p>
+<h3 id='http-request'>HTTP Request</h3><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> GET <span class="s2">"http://api.lemcal.com/api/lemcal/meeting-types"</span> <span class="se">\</span>
+     <span class="nt">-H</span> <span class="s2">"Authorization: Basic </span><span class="si">$(</span><span class="nb">echo</span> <span class="nt">-n</span> <span class="s1">'userId:apiKey'</span> | <span class="nb">base64</span><span class="si">)</span><span class="s2">"</span>
+</code></pre></div>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="w">
+</span><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"met_RLejS4uWmhpqi694q"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"userId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"usr_3k8N8agFoYCPcyivH"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Meeting Type 1"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A description"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"meetingLink"</span><span class="p">:</span><span class="w"> </span><span class="s2">"meeting-link-1"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"default"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"color"</span><span class="p">:</span><span class="w"> </span><span class="s2">"#EC6181"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"duration"</span><span class="p">:</span><span class="w"> </span><span class="mi">30</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"enabled"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"privacy"</span><span class="p">:</span><span class="w"> </span><span class="s2">"public"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"meetingLocations"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w"> </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"LY5Q8Y6ciZNkgo8Sr"</span><span class="p">,</span><span class="w"> </span><span class="nl">"provider"</span><span class="p">:</span><span class="w"> </span><span class="s2">"googlemeet"</span><span class="w"> </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nl">"questions"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"8retcc9tCAmuds7Q7"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"answerType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"text"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"enabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"question"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A question"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nl">"roundRobin"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"enabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"users"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w"> </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"usr_3k8N8agFoYCPcyivH"</span><span class="p">,</span><span class="w"> </span><span class="nl">"enabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"> </span><span class="nl">"weight"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">}</span><span class="w">
+      </span><span class="p">],</span><span class="w">
+      </span><span class="nl">"lastCycle"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+</span><span class="p">]</span><span class="w">
+
+</span></code></pre></div>
+<p><code>GET http://api.lemcal.com/api/lemcal/meetingTypes</code></p>
+<h3 id='response'>Response</h3>
+<p>List of meeting types</p>
+<h2 id='get-a-meeting-type'>Get a meeting type</h2>
+<p>This endpoint allows you to retrieve a specific meeting type by its <code>id</code>.</p>
+<h3 id='http-request-2'>HTTP Request</h3>
+<p><code>GET http://api.lemcal.com/api/lemcal/meetingTypes/:_id</code></p>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> GET <span class="s2">"http://api.lemcal.com/api/lemcal/meetingTypes/:_id"</span> <span class="se">\</span>
+     <span class="nt">-H</span> <span class="s2">"Authorization: Basic </span><span class="si">$(</span><span class="nb">echo</span> <span class="nt">-n</span> <span class="s1">'userId:apiKey'</span> | <span class="nb">base64</span><span class="si">)</span><span class="s2">"</span> <span class="se">\</span>
+
+</code></pre></div>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="w">
+</span><span class="p">{</span><span class="w">
+    </span><span class="nl">"_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"met_RLejS4uWmhpqi694q"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"userId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"usr_3k8N8agFoYCPcyivH"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Meeting Type 1"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A description"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"meetingLink"</span><span class="p">:</span><span class="w"> </span><span class="s2">"meeting-link-1"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"default"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"color"</span><span class="p">:</span><span class="w"> </span><span class="s2">"#EC6181"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"duration"</span><span class="p">:</span><span class="w"> </span><span class="mi">30</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"enabled"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"privacy"</span><span class="p">:</span><span class="w"> </span><span class="s2">"public"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"meetingLocations"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w"> </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"LY5Q8Y6ciZNkgo8Sr"</span><span class="p">,</span><span class="w"> </span><span class="nl">"provider"</span><span class="p">:</span><span class="w"> </span><span class="s2">"googlemeet"</span><span class="w"> </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nl">"questions"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"8retcc9tCAmuds7Q7"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"answerType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"text"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"enabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"question"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A question"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nl">"roundRobin"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"enabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"users"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w"> </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"usr_3k8N8agFoYCPcyivH"</span><span class="p">,</span><span class="w"> </span><span class="nl">"enabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"> </span><span class="nl">"weight"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">}</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+        </span><span class="nl">"lastCycle"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span></code></pre></div><h3 id='parameters'>Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>_id</code></td>
+<td>string</td>
+<td>Yes</td>
+<td>The ID of the meeting type to retrieve.</td>
+</tr>
+</tbody></table>
+<h2 id='structure-of-a-meeting-type'>Structure of a meeting type</h2>
+<table><thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>string</td>
+<td>Unique identifier for the meeting type</td>
+</tr>
+<tr>
+<td>userId</td>
+<td>string</td>
+<td>Identifier of the user who created this meeting type</td>
+</tr>
+<tr>
+<td>name</td>
+<td>string</td>
+<td>Name of the meeting type</td>
+</tr>
+<tr>
+<td>description</td>
+<td>string</td>
+<td>Brief description of the meeting type</td>
+</tr>
+<tr>
+<td>meetingLink</td>
+<td>string</td>
+<td>Custom link for scheduling this meeting type</td>
+</tr>
+<tr>
+<td>type</td>
+<td>string</td>
+<td>Type of the meeting (e.g., &quot;default&quot;)</td>
+</tr>
+<tr>
+<td>color</td>
+<td>string</td>
+<td>Hex color code associated with this meeting type</td>
+</tr>
+<tr>
+<td>duration</td>
+<td>number</td>
+<td>Duration of the meeting in minutes</td>
+</tr>
+<tr>
+<td>status</td>
+<td>string</td>
+<td>Current status of the meeting type (&quot;enabled&quot;, &quot;disabled&quot;)</td>
+</tr>
+<tr>
+<td>privacy</td>
+<td>string</td>
+<td>Privacy setting for the meeting type (&quot;public&quot;, &quot;private&quot;)</td>
+</tr>
+<tr>
+<td>meetingLocations</td>
+<td>array</td>
+<td>List of possible meeting locations/platforms</td>
+</tr>
+<tr>
+<td>meetingLocations[].id</td>
+<td>string</td>
+<td>Unique identifier for the meeting location</td>
+</tr>
+<tr>
+<td>meetingLocations[].provider</td>
+<td>string</td>
+<td>Provider of the meeting platform (e.g., &quot;googlemeet&quot;)</td>
+</tr>
+<tr>
+<td>questions</td>
+<td>array</td>
+<td>List of questions to be asked when scheduling</td>
+</tr>
+<tr>
+<td>questions[].id</td>
+<td>string</td>
+<td>Unique identifier for the question</td>
+</tr>
+<tr>
+<td>questions[].answerType</td>
+<td>string</td>
+<td>Type of answer expected (e.g., &quot;text&quot;)</td>
+</tr>
+<tr>
+<td>questions[].enabled</td>
+<td>boolean</td>
+<td>Whether the question is currently enabled</td>
+</tr>
+<tr>
+<td>questions[].question</td>
+<td>string</td>
+<td>The actual question text</td>
+</tr>
+<tr>
+<td>roundRobin</td>
+<td>object</td>
+<td>Settings for round-robin scheduling</td>
+</tr>
+<tr>
+<td>roundRobin.enabled</td>
+<td>boolean</td>
+<td>Whether round-robin scheduling is enabled</td>
+</tr>
+<tr>
+<td>roundRobin.users</td>
+<td>array</td>
+<td>List of users participating in round-robin</td>
+</tr>
+<tr>
+<td>roundRobin.users[].id</td>
+<td>string</td>
+<td>Unique identifier of the user</td>
+</tr>
+<tr>
+<td>roundRobin.users[].enabled</td>
+<td>boolean</td>
+<td>Whether the user is active in round-robin</td>
+</tr>
+<tr>
+<td>roundRobin.users[].weight</td>
+<td>number</td>
+<td>Weight assigned to the user in round-robin selection</td>
+</tr>
+<tr>
+<td>roundRobin.lastCycle</td>
+<td>array</td>
+<td>(Not used)</td>
 </tr>
 </tbody></table>
 <h1 id='errors'>Errors</h1><h2 id='general-errors'>General Errors</h2>
